@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
     const { phoneNumber } = schema.parse(body);
     const otp = generateOTP();
     const sessionId = generateSessionId();
-    const saveOtpSession = await db.oTPUserSession.create({
+    await db.oTPUserSession.create({
       data: {
         otp: otp,
         sessionId: sessionId,

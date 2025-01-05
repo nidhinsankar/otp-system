@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
   const token = authHeader.split(" ")[1];
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET!);
+    jwt.verify(token, process.env.JWT_SECRET!);
     return NextResponse.json({
       isValid: true,
       message: "Token is valid",
